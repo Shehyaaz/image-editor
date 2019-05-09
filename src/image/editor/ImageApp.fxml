@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="image.editor.ImageAppController">
+   <children>
+      <MenuBar fx:id="mb" layoutX="6.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="file" text="File">
+            <items>
+              <MenuItem fx:id="openimage" mnemonicParsing="false" onAction="#openImage" text="Open Image">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem fx:id="saveimage" mnemonicParsing="false" onAction="#saveImage" text="Save Image">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exitApp" text="Exit">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="Q" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu fx:id="edit" text="Edit">
+            <items>
+                  <MenuItem fx:id="crop" mnemonicParsing="false" onAction="#cropImage" text="Crop Image" />
+                  <MenuItem fx:id="freecrop" mnemonicParsing="false" onAction="#freeCropImage" text="Free Crop Image" />
+                  <MenuItem fx:id="grayscale" mnemonicParsing="false" onAction="#toGrayScale" text="Gray Scale" />
+                  <MenuItem fx:id="blur" mnemonicParsing="false" onAction="#blurImage" text="Blur Image" />
+                  <MenuItem fx:id="rotateimgright" mnemonicParsing="false" onAction="#rotateImageRight" text="Rotate Image Right" />
+                  <MenuItem fx:id="rotateimgleft" mnemonicParsing="false" onAction="#rotateImageLeft" text="Rotate Image Left" />
+                  <MenuItem fx:id="textimg" mnemonicParsing="false" onAction="#textImage" text="Text" />
+                  <MenuItem fx:id="doodle" mnemonicParsing="false" onAction="#doodleImage" text="Doodle" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="reset" mnemonicParsing="false" onAction="#resetImage" text="Reset">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Z" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu fx:id="help" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#aboutUs" text="About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="H" control="UP" meta="UP" shift="UP" shortcut="DOWN" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ToolBar prefHeight="14.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <items>
+            <Button fx:id="openimgbtn" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#openImage" prefHeight="20.0" prefWidth="20.0" text="Open Image">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE_PHOTO_ALT" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="saveimgbtn" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" onAction="#saveImage" prefHeight="20.0" prefWidth="20.0" text="Save Image">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SAVE" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="resetbtn" contentDisplay="GRAPHIC_ONLY" layoutX="46.0" layoutY="7.0" mnemonicParsing="false" onAction="#resetImage" prefHeight="20.0" prefWidth="20.0" text="Reset">
+               <graphic>
+                  <FontAwesomeIconView glyphName="REPLY" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="cropbtn" contentDisplay="GRAPHIC_ONLY" layoutX="82.0" layoutY="7.0" mnemonicParsing="false" onAction="#cropImage" prefHeight="20.0" prefWidth="20.0" text="Crop Image">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CROP" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="freecropbtn" contentDisplay="GRAPHIC_ONLY" layoutX="120.0" layoutY="7.0" mnemonicParsing="false" onAction="#freeCropImage" prefHeight="20.0" prefWidth="20.0" text="Free Crop Image">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CUT" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="textimgbtn" contentDisplay="GRAPHIC_ONLY" layoutX="118.0" layoutY="7.0" mnemonicParsing="false" onAction="#textImage" prefHeight="20.0" prefWidth="20.0" text="Text Image">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FONT" size="18.0" />
+               </graphic>
+            </Button>
+            <Button fx:id="doodlebtn" contentDisplay="GRAPHIC_ONLY" layoutX="154.0" layoutY="7.0" mnemonicParsing="false" onAction="#doodleImage" prefHeight="20.0" prefWidth="20.0" text="Doodle">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PENCIL" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="rotatebtn1" contentDisplay="GRAPHIC_ONLY" layoutX="190.0" layoutY="7.0" mnemonicParsing="false" onAction="#rotateImageRight" prefHeight="20.0" prefWidth="20.0" text="Rotate Right">
+               <graphic>
+                  <FontAwesomeIconView glyphName="ROTATE_RIGHT" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="rotatebtn2" contentDisplay="GRAPHIC_ONLY" layoutX="226.0" layoutY="7.0" mnemonicParsing="false" onAction="#rotateImageLeft" prefHeight="20.0" prefWidth="20.0" text="Rotate Left">
+               <graphic>
+                  <FontAwesomeIconView glyphName="ROTATE_LEFT" size="18" />
+               </graphic>
+            </Button>
+            <Button fx:id="aboutbtn" contentDisplay="GRAPHIC_ONLY" layoutX="266.0" layoutY="10.0" mnemonicParsing="false" onAction="#aboutUs" prefHeight="20.0" prefWidth="20.0" text="About">
+               <graphic>
+                  <FontAwesomeIconView glyphName="INFO" size="18" />
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <BorderPane fx:id="border" layoutX="171.0" layoutY="54.0" prefHeight="346.0" prefWidth="600.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="54.0">
+         <bottom>
+            <HBox prefHeight="20.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Pixy Image Editor" textAlignment="RIGHT">
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                     <graphic>
+                        <FontAwesomeIconView fill="#0030ff" glyphName="INSTAGRAM" />
+                     </graphic>
+                  </Label>
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
